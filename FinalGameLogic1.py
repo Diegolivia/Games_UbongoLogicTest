@@ -91,20 +91,20 @@ class Player:
         print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 
     def MaximoGemas(self):
-        max = 0;
-        geM=0;
+        max = 0
+        geM=0
         for i in range(6):
             if(self.Mochila[i]>max):
-                max=self.Mochila[i];
-                geM=i;
-        return [geM,max];
+                max=self.Mochila[i]
+                geM=i
+        return [geM,max]
 
 
 class AIPlayer(Player):
     def __init__(self, turn, position, color,diff):
-        self.Difficulty = diff;
+        self.Difficulty = diff
         self.Buscar=[0,0]
-        Player.__init__(self,turn,position,color);
+        Player.__init__(self,turn,position,color)
 
     def DefinirBusqueda(self):
         pass
@@ -132,7 +132,7 @@ def Game():
     Turn=0
     #Preguntar por la cantidad de jugadores
     while numPlayers>4 or numPlayers<2:
-        numPlayers = int(input("Ingrese el numero de jugadores: "));
+        numPlayers = int(input("Ingrese el numero de jugadores: "))
     while numAI>numPlayers-1 or numAI<0:
         numAI = numPlayers-int(input("Ingrese el numero de humanos: "))
     #Crea el tablero con las gemas y los jugadores
@@ -149,12 +149,12 @@ def Game():
         #Imprimir tablero
         tab.Dibujar()
         for i in range(numPlayers):
-            arrPlayers[i].ShowPlayerState();
+            arrPlayers[i].ShowPlayerState()
             if(type(arrPlayers[i])==AIPlayer):
-                print("Es un robot");
+                print("Es un robot")
             else : 
                 if(type(arrPlayers[i])==Player):
-                    print("Es un manito");
+                    print("Es un manito")
         #Manejador de Turnos, turno final regresa al turno 0
         if(Turn==numPlayers):
             Turn=0
